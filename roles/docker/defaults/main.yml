@@ -8,3 +8,10 @@ required_packages:
   - curl
 
 docker_repository_gpg: 36A1D7869245C8950F966E92D8576A8BA88D21E9
+
+docker_base_dir: /data/docker
+
+docker_opts:
+  - "--dns 8.8.8.8"
+  - "--dns 8.8.4.4"
+  - "-g {{ docker_base_dir }}"
