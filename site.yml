@@ -1,0 +1,6 @@
+---
+- name: configure docker hosts
+  hosts: docker-hosts
+  sudo: True
+  roles:
+    - docker

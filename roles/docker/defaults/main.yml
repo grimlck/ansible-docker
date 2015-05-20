@@ -1,0 +1,10 @@
+---
+required_packages:
+  - linux-image-generic-lts-trusty 
+  - linux-image-extra-{{ ohai_os_version }}
+  - linux-image-extra-virtual
+  - apt-transport-https
+  - ca-certificates
+  - curl
+
+docker_repository_gpg: 36A1D7869245C8950F966E92D8576A8BA88D21E9

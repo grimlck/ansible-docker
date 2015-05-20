@@ -1,0 +1,19 @@
+---
+- name: Add docker.com repository
+  apt_repository:
+    repo: deb https://get.docker.com/ubuntu docker main
+    state: present
+
+- name: Add repository key
+  command: "apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys {{ docker_repository_gpg }}"
+
+- name: Reload apt cache
+  apt: update_cache=yes
+
+- name: Install docker requirements
+  apt: name={{ item }} update_cache=yes cache_valid_time=3600
+  with_items: "{{ required_packages }}"
+
+- name: Install docker
+  apt: name=lxc-docker state=latest update_cache=yes cache_valid_time=3600
+
